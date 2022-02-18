@@ -1,0 +1,10 @@
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\bin\Debug\netcoreapp3.1\SendEmail.deps.json
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\bin\Debug\netcoreapp3.1\SendEmail.dll
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\bin\Debug\netcoreapp3.1\SendEmail.pdb
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.csproj.AssemblyReference.cache
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.AssemblyInfoInputs.cache
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.AssemblyInfo.cs
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.csproj.CoreCompileInputs.cache
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.dll
+C:\Users\Josh\Documents\Clarity Project\SendEmail\SendEmail\obj\Debug\netcoreapp3.1\SendEmail.pdb
