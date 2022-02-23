@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Josh\\Documents\\Clarity Project\\SendEmail\\SendEmail\\SendEmail.csproj": {}
+    "C:\\Users\\Josh\\Documents\\ClarityTestProject\\ClarityRepo\\SendEmail\\SendEmail\\SendEmail.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Josh\\Documents\\Clarity Project\\SendEmail\\SendEmail\\SendEmail.csproj": {
+    "C:\\Users\\Josh\\Documents\\ClarityTestProject\\ClarityRepo\\SendEmail\\SendEmail\\SendEmail.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Josh\\Documents\\Clarity Project\\SendEmail\\SendEmail\\SendEmail.csproj",
+        "projectUniqueName": "C:\\Users\\Josh\\Documents\\ClarityTestProject\\ClarityRepo\\SendEmail\\SendEmail\\SendEmail.csproj",
         "projectName": "SendEmail",
-        "projectPath": "C:\\Users\\Josh\\Documents\\Clarity Project\\SendEmail\\SendEmail\\SendEmail.csproj",
+        "projectPath": "C:\\Users\\Josh\\Documents\\ClarityTestProject\\ClarityRepo\\SendEmail\\SendEmail\\SendEmail.csproj",
         "packagesPath": "C:\\Users\\Josh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Josh\\Documents\\Clarity Project\\SendEmail\\SendEmail\\obj\\",
+        "outputPath": "C:\\Users\\Josh\\Documents\\ClarityTestProject\\ClarityRepo\\SendEmail\\SendEmail\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Josh\\AppData\\Roaming\\NuGet\\NuGet.Config",

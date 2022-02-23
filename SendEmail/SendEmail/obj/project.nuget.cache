@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R04L5DQJv8TsB1eE86ANb0kRnOWJAOudJkuCfp85jJ7neJYL4ExGc7flj1P2ideIVDT/HuT+bRzOKc+f1n5tBg==",
+  "dgSpecHash": "GIpY2XoljK+HA9ufxMtM1lEwinRNaCZdPKTR30WAmPlNvO1z+UThLAdY3OMlm5lJ1JuQwI5Fz+yRvCqWIZb+jw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Josh\\Documents\\Clarity Project\\SendEmail\\SendEmail\\SendEmail.csproj",
+  "projectFilePath": "C:\\Users\\Josh\\Documents\\ClarityTestProject\\ClarityRepo\\SendEmail\\SendEmail\\SendEmail.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
