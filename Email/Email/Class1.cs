@@ -19,7 +19,7 @@ namespace SendEmail
         private int sendAttempts = 0;
         private bool status = false;
 
-        public bool sendMail()//main method of dll
+        public bool SendMail()//main method of dll
         {
             sendAttempts++;//every time a send is attempted, increment sendAttempts
             try
@@ -75,7 +75,7 @@ namespace SendEmail
             {
                 if (sendAttempts < 3)//if it hasnt attemoted to send the email 3 times
                 {
-                    sendMail();//attempt to send again
+                    SendMail();//attempt to send again
                 }
                 else//if 3 attempts have been made
                 {
@@ -141,6 +141,8 @@ namespace SendEmail
                 writer.WriteStartElement("credentials");
                 writer.WriteElementString("username", sender);
                 writer.WriteElementString("password", password);
+                writer.WriteEndElement();
+                writer.Flush();
             }*/
         }
     }

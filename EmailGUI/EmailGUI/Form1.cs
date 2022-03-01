@@ -43,7 +43,7 @@ namespace EmailGUI
             }
             //Construct new instance of SendEmail and pass info in the GUI
             SendEmail.SendEmail newMail = new SendEmail.SendEmail(tempName, tempPass, toBox.Text, subBox.Text, bodyBox.Text);
-            if (newMail.sendMail() == true)//if the email is successfully sent
+            if (newMail.SendMail() == true)//if the email is successfully sent
             {
                 MessageBox.Show("Mail Sent!");//alert user
                 using (StreamWriter sw = File.AppendText("log.txt"))//initialize stream writer
