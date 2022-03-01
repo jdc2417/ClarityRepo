@@ -4,3 +4,9 @@ C:\Users\Josh\Documents\Clarity Project\Email\Email\obj\Debug\Email.csproj.Assem
 C:\Users\Josh\Documents\Clarity Project\Email\Email\obj\Debug\Email.csproj.CoreCompileInputs.cache
 C:\Users\Josh\Documents\Clarity Project\Email\Email\obj\Debug\Email.dll
 C:\Users\Josh\Documents\Clarity Project\Email\Email\obj\Debug\Email.pdb
+C:\Users\Josh\Documents\ClarityTestProject\ClarityRepo\Email\Email\obj\Debug\Email.csproj.AssemblyReference.cache
+C:\Users\Josh\Documents\ClarityTestProject\ClarityRepo\Email\Email\obj\Debug\Email.csproj.CoreCompileInputs.cache
+C:\Users\Josh\Documents\ClarityTestProject\ClarityRepo\Email\Email\obj\Debug\Email.dll
+C:\Users\Josh\Documents\ClarityTestProject\ClarityRepo\Email\Email\obj\Debug\Email.pdb
+C:\Users\Josh\Documents\ClarityTestProject\ClarityRepo\Email\Email\bin\Debug\Email.dll
+C:\Users\Josh\Documents\ClarityTestProject\ClarityRepo\Email\Email\bin\Debug\Email.pdb

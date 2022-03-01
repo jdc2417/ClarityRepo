@@ -1,13 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Net;
+using System.IO;
 using System.Net.Mail;//email library
+using System.Xml;
+using System.Configuration;
 
 namespace SendEmail
 {
     public class SendEmail
     {
         //data members
+        private string sender;
         private string password;
         private string recipient;
         private string subject;
@@ -20,9 +24,9 @@ namespace SendEmail
             sendAttempts++;//every time a send is attempted, increment sendAttempts
             try
             {//try to access credentials stored in xml appsettings
-                var credentials = ConfigurationManager.AppSettings;
+                /*var credentials = ConfigurationManager.AppSettings;
                 string senderCred = appSettings[username] ?? "Not Found";
-                string passCred = appSettings[password] ?? "Not Found";
+                string passCred = appSettings[password] ?? "Not Found";*/
                 try
                 {//if the credentials can be accessed
                     SmtpClient Client = new SmtpClient()//initialize email client
@@ -34,8 +38,8 @@ namespace SendEmail
                         UseDefaultCredentials = false,
                         Credentials = new NetworkCredential()
                         {
-                            UserName = senderCred,//credentials from appsettings
-                            Password = passCred
+                            UserName = sender,//credentials from appsettings
+                            Password = password
                         }
                     };
                     //declare two sides of the email and the email itself
@@ -132,12 +136,12 @@ namespace SendEmail
             this.recipient = r;
             this.subject = sub;
             this.body = b;
-            using (XmlWriter createCredentials = XmlWriter.Create("credentials.xml"))//attempt to create xml file with credentials
+            /*using (XmlWriter createCredentials = XmlWriter.Create("credentials.xml"))//attempt to create xml file with credentials
             {
                 writer.WriteStartElement("credentials");
                 writer.WriteElementString("username", sender);
                 writer.WriteElementString("password", password);
-            }
+            }*/
         }
     }
 }
