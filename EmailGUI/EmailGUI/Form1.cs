@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SendEmail;//dll I created
+using System.Xml;
 
 namespace EmailGUI
 {
@@ -23,24 +24,43 @@ namespace EmailGUI
 
         private void sendBut_Click(object sender, EventArgs e)
         {
+            string tempName;
+            string tempPass;
+            using (XmlWriter createCredentials = XmlWriter.Create("credentials.xml"))//attempt to create xml file with credentials
+            {
+                createCredentials.WriteStartElement("credentials");
+                createCredentials.WriteElementString("username", senderBox.Text);
+                createCredentials.WriteElementString("password", passBox.Text);
+                createCredentials.WriteEndElement();
+                createCredentials.Flush();
+            }
+            using (XmlReader readCredentials = XmlReader.Create("credentials.xml"))//attempt to create xml file with credentials
+            {
+                readCredentials.ReadStartElement("credentials");
+                tempName = readCredentials.ReadElementString("username");
+                tempPass = readCredentials.ReadElementString("password");
+                readCredentials.ReadEndElement();
+            }
             //Construct new instance of SendEmail and pass info in the GUI
-            SendEmail.SendEmail newMail = new SendEmail.SendEmail(senderBox.Text, passBox.Text, toBox.Text, subBox.Text, bodyBox.Text);
+            SendEmail.SendEmail newMail = new SendEmail.SendEmail(tempName, tempPass, toBox.Text, subBox.Text, bodyBox.Text);
             if (newMail.sendMail() == true)//if the email is successfully sent
             {
                 MessageBox.Show("Mail Sent!");//alert user
-                using (StreamWriter sw = File.AppendText("./log.txt"))//initialize stream writer
+                using (StreamWriter sw = File.AppendText("log.txt"))//initialize stream writer
                 {
                     //log data in a persistant form
-                    sw.WriteLine(senderBox.Text + ", " + toBox.Text + ", " + subBox + ", " + bodyBox + ", " + DateTime.Today + ", Send Successful");
+                    sw.WriteLine(senderBox.Text + ", " + toBox.Text + ", " + subBox.Text + ", " + bodyBox.Text + ", " + DateTime.Now + ", Send Successful");
+                    sw.Flush();
                 }
             }
             else//if the email did not send after 3 attempts
             {
                 MessageBox.Show("An error occurred.");//alert user
-                using (StreamWriter sw = File.AppendText("./log.txt"))//initialize stream writer
+                using (StreamWriter sw = File.AppendText("log.txt"))//initialize stream writer
                 {
                     //log data in a persistant form
-                    sw.WriteLine(senderBox.Text + ", " + toBox.Text + ", " + subBox + ", " + bodyBox + ", " + DateTime.Today + ", Send Failed");
+                    sw.WriteLine(senderBox.Text + ", " + toBox.Text + ", " + subBox.Text + ", " + bodyBox.Text + ", " + DateTime.Now + ", Send Failed");
+                    sw.Flush();
                 }
                     
             }
