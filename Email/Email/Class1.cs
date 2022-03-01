@@ -17,56 +17,46 @@ namespace SendEmail
         private string subject;
         private string body;
         private int sendAttempts = 0;
-        private bool status = false;
+        public bool status = true;
 
-        public bool SendMail()//main method of dll
+        public void SendMail()//main method of dll
         {
             sendAttempts++;//every time a send is attempted, increment sendAttempts
-            try
-            {//try to access credentials stored in xml appsettings
-                /*var credentials = ConfigurationManager.AppSettings;
-                string senderCred = appSettings[username] ?? "Not Found";
-                string passCred = appSettings[password] ?? "Not Found";*/
-                try
-                {//if the credentials can be accessed
-                    SmtpClient Client = new SmtpClient()//initialize email client
-                    {
-                        Host = "smtp.gmail.com",//initialize email data
-                        Port = 587,
-                        EnableSsl = true,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential()
-                        {
-                            UserName = sender,//credentials from appsettings
-                            Password = password
-                        }
-                    };
-                    //declare two sides of the email and the email itself
-                    MailAddress recipientAdd = new MailAddress(recipient, recipient);
-                    MailAddress senderAdd = new MailAddress(sender, sender);
-                    MailMessage email = new MailMessage()
-                    {
-                        From = senderAdd,
-                        Subject = subject,
-                        Body = body
-                    };
-                    //add recipient to email
-                    email.To.Add(recipientAdd);
-                    Client.SendCompleted += Client_SendCompleted;
-                    Client.SendMailAsync(email);
-                }
-                catch//if an error occurs in the sending
-                {
-                    Console.WriteLine("Error in email credentials.");//report to user
-                }
-            }
-            catch//if an error occurs in retrieving the credentials
-            {
-                Console.WriteLine("Error reading appsettings.");//report to user
-            }
 
-            return status;//return true of false based on if the email sent
+            try
+            {
+                SmtpClient Client = new SmtpClient()//initialize email client
+                {
+                    Host = "smtp.gmail.com",//initialize email data
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential()
+                    {
+                        UserName = sender,//credentials from appsettings
+                        Password = password
+                    }
+                };
+                //declare two sides of the email and the email itself
+                MailAddress recipientAdd = new MailAddress(recipient, recipient);
+                MailAddress senderAdd = new MailAddress(sender, sender);
+                MailMessage email = new MailMessage()
+                {
+                    From = senderAdd,
+                    Subject = subject,
+                    Body = body
+                };
+                //add recipient to email
+                email.To.Add(recipientAdd);
+                Client.SendCompleted += Client_SendCompleted;
+                Client.SendMailAsync(email);
+            }
+            catch//if an error occurs in the sending
+            {
+                Console.WriteLine("Error in email credentials.");//report to user
+            }
+            //return status;//return true of false based on if the email sent
         }
 
         private void Client_SendCompleted(object sender, AsyncCompletedEventArgs e)//event handler for the sending of the email
@@ -79,11 +69,11 @@ namespace SendEmail
                 }
                 else//if 3 attempts have been made
                 {
-                    status = false;//set status to false
+                    this.status = false;//set status to false
                     return;//exit event handler
                 }
             }
-            status = true;//if no error occurred, set status to true to show the email sent
+            this.status = true;//if no error occurred, set status to true to show the email sent
         }
 
         //getters and setters just in case, even though they arent used in this program
@@ -127,6 +117,10 @@ namespace SendEmail
         {
             return this.body;
         }
+        public bool getStatus()
+        {
+            return this.status;
+        }
 
         public SendEmail(string s, string p, string r, string sub, string b)//constructor
         {
@@ -136,14 +130,6 @@ namespace SendEmail
             this.recipient = r;
             this.subject = sub;
             this.body = b;
-            /*using (XmlWriter createCredentials = XmlWriter.Create("credentials.xml"))//attempt to create xml file with credentials
-            {
-                writer.WriteStartElement("credentials");
-                writer.WriteElementString("username", sender);
-                writer.WriteElementString("password", password);
-                writer.WriteEndElement();
-                writer.Flush();
-            }*/
         }
     }
 }

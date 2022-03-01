@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SendEmail;//dll I created
-using System.Xml;
+using System.Xml;//xml library for appsettings
 
 namespace EmailGUI
 {
@@ -24,7 +24,7 @@ namespace EmailGUI
 
         private void sendBut_Click(object sender, EventArgs e)
         {
-            string tempName;
+            string tempName;//temp variables to store what is retrieved from appsettings
             string tempPass;
             using (XmlWriter createCredentials = XmlWriter.Create("credentials.xml"))//attempt to create xml file with credentials
             {
@@ -34,16 +34,17 @@ namespace EmailGUI
                 createCredentials.WriteEndElement();
                 createCredentials.Flush();
             }
-            using (XmlReader readCredentials = XmlReader.Create("credentials.xml"))//attempt to create xml file with credentials
+            using (XmlReader readCredentials = XmlReader.Create("credentials.xml"))//attempt to read xml file with credentials
             {
                 readCredentials.ReadStartElement("credentials");
-                tempName = readCredentials.ReadElementString("username");
+                tempName = readCredentials.ReadElementString("username");//setting temp variables to retrieved info
                 tempPass = readCredentials.ReadElementString("password");
                 readCredentials.ReadEndElement();
             }
             //Construct new instance of SendEmail and pass info in the GUI
             SendEmail.SendEmail newMail = new SendEmail.SendEmail(tempName, tempPass, toBox.Text, subBox.Text, bodyBox.Text);
-            if (newMail.SendMail() == true)//if the email is successfully sent
+            newMail.SendMail();
+            if (newMail.getStatus() == true)//if the email is successfully sent
             {
                 MessageBox.Show("Mail Sent!");//alert user
                 using (StreamWriter sw = File.AppendText("log.txt"))//initialize stream writer
