@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Mail;//email library
 using System.Xml;
 using System.Configuration;
+using System.Threading.Tasks;
 
 namespace SendEmail
 {
@@ -17,9 +18,9 @@ namespace SendEmail
         private string subject;
         private string body;
         private int sendAttempts = 0;
-        public bool status = true;
+        public bool status;
 
-        public void SendMail()//main method of dll
+        public async Task SendMail()//main method of dll
         {
             sendAttempts++;//every time a send is attempted, increment sendAttempts
 
@@ -50,7 +51,7 @@ namespace SendEmail
                 //add recipient to email
                 email.To.Add(recipientAdd);
                 Client.SendCompleted += Client_SendCompleted;
-                Client.SendMailAsync(email);
+                await Client.SendMailAsync(email);
             }
             catch//if an error occurs in the sending
             {

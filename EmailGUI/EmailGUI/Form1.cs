@@ -22,7 +22,7 @@ namespace EmailGUI
             InitializeComponent();//initialize form
         }
 
-        private void sendBut_Click(object sender, EventArgs e)
+        private async void sendBut_Click(object sender, EventArgs e)
         {
             string tempName;//temp variables to store what is retrieved from appsettings
             string tempPass;
@@ -43,7 +43,7 @@ namespace EmailGUI
             }
             //Construct new instance of SendEmail and pass info in the GUI
             SendEmail.SendEmail newMail = new SendEmail.SendEmail(tempName, tempPass, toBox.Text, subBox.Text, bodyBox.Text);
-            newMail.SendMail();
+            await newMail.SendMail();
             if (newMail.getStatus() == true)//if the email is successfully sent
             {
                 MessageBox.Show("Mail Sent!");//alert user
